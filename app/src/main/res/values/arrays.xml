@@ -3,10 +3,8 @@
     <string-array name="section">
         <item>all</item>
         <item>news</item>
-        <item>opinion</item>
         <item>sport</item>
         <item>culture</item>
-        <item>lifestyle</item>
     </string-array>
     <string-array name="orderBy">
         <item>default</item>
