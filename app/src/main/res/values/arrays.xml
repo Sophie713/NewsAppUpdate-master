@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string-array name="section_values">
+        <item>all</item>
+        <item>news</item>
+        <item>opinion</item>
+        <item>lifestyle</item>
+        <item>sport</item>
+        <item>culture</item>
+    </string-array>
     <string-array name="section">
         <item>all</item>
         <item>news</item>
+        <item>commentisfree</item>
+        <item>lifeandstyle</item>
         <item>sport</item>
         <item>culture</item>
     </string-array>

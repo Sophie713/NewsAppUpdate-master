@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     String apiKey = "api-key=bad443d6-1a63-4406-a808-a72782dc4330";
     TextView noDataToShow;
     android.support.v7.widget.Toolbar settings;
+    LoaderManager loaderManager = getLoaderManager();
+    RecyclerView myListView;
 
 
     //check if device is connected
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         settings = findViewById(R.id.toolbarMain);
         settings.setTitle("");
         setSupportActionBar(settings);
+        myListView = findViewById(R.id.list);
         //check permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.INTERNET}, 1);
@@ -74,10 +77,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.ACCESS_NETWORK_STATE}, 1);
         }
         //get my data
-        if (!isNetworkAvailable()) {
-            noDataToShow.setText(R.string.no_connection);
+        if (networkAvailable()) {
+            loadData();
         }
-        loadData();
 
         update_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,10 +92,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     private void loadData() {
-        LoaderManager loaderManager = getLoaderManager();
-        loaderManager.initLoader(1, null, this);
+        loaderManager.destroyLoader(1);
+        JSONParser.testHistory.clear();
+        myListView.removeAllViews();
+        if (networkAvailable()) {
+            loaderManager.initLoader(1, null, this);
+        }
     }
-
 
     @Override
     public Loader<List<NewsObject>> onCreateLoader(int id, Bundle args) {
@@ -107,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             adapter = new NewsAdapter(JSONParser.testHistory);
             noDataToShow.setVisibility(View.GONE);
 
-            RecyclerView myListView = findViewById(R.id.list);
+
             RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
 
             myListView.setLayoutManager(layoutManager);
@@ -119,10 +124,9 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
 
     @Override
     public void onLoaderReset(@NonNull Loader<List<NewsObject>> loader) {
-        loadData();
     }
 
-     //menu setup
+    //menu setup
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.settings, menu);
@@ -157,6 +161,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             url = "https://content.guardianapis.com/search?" + apiKey;
         }
         return url;
+    }
+
+    public boolean networkAvailable() {
+        if (!isNetworkAvailable()) {
+            noDataToShow.setText(R.string.no_connection);
+            return false;
+        } else {
+            return true;
+        }
     }
 
     @Override

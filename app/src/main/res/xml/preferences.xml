@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="Search filter">
 
-    <PreferenceCategory
-        android:title="News Preferences">
+    <CheckBoxPreference
+        android:key="go_back"
+        android:layout="@layout/settings_toolbar" />
+
+    <PreferenceCategory android:title="News Preferences">
 
         <ListPreference
-            android:entries="@array/section"
+            android:entries="@array/section_values"
             android:entryValues="@array/section"
             android:key="section"
             android:summary="all"

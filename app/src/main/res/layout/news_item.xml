@@ -27,5 +27,4 @@
         android:layout_height="wrap_content"
         tools:text="Author and date of an article"/>
 
-
 </LinearLayout>
