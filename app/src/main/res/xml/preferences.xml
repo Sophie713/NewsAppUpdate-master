@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Search filter">
+
+    <PreferenceCategory
+        android:title="News Preferences">
+
+        <ListPreference
+            android:entries="@array/section"
+            android:entryValues="@array/section"
+            android:key="section"
+            android:summary="all"
+            android:title="Sections" />
+
+        <ListPreference
+            android:entries="@array/orderBy"
+            android:entryValues="@array/orderBy"
+            android:key="order"
+            android:summary="default"
+            android:title="Order by" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

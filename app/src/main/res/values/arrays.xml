@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="section">
+        <item>all</item>
+        <item>news</item>
+        <item>opinion</item>
+        <item>sport</item>
+        <item>culture</item>
+        <item>lifestyle</item>
+    </string-array>
+    <string-array name="orderBy">
+        <item>default</item>
+        <item>relevance</item>
+        <item>oldest</item>
+        <item>newest</item>
+    </string-array>
+</resources>
