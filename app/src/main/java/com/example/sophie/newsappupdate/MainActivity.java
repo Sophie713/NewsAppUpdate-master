@@ -152,13 +152,13 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
         String section = sharedPreferences.getString("section", "all");
         String order = sharedPreferences.getString("order", "default");
         if (!section.equals("all") && !order.equals("default")) {
-            url = "https://content.guardianapis.com/search?section=" + section + "&order-by=" + order + "&" + apiKey;
+            url = "https://content.guardianapis.com/search?&show-tags=contributor&section=" + section + "&order-by=" + order + "&" + apiKey;
         } else if (!section.equals("all")) {
-            url = "https://content.guardianapis.com/search?section=" + section + "&" + apiKey;
+            url = "https://content.guardianapis.com/search?&show-tags=contributor&section=" + section + "&" + apiKey;
         } else if (!order.equals("default")) {
-            url = "https://content.guardianapis.com/search?order-by=" + order + "&" + apiKey;
+            url = "https://content.guardianapis.com/search?&show-tags=contributor&order-by=" + order + "&" + apiKey;
         } else {
-            url = "https://content.guardianapis.com/search?" + apiKey;
+            url = "https://content.guardianapis.com/search?&show-tags=contributor&" + apiKey;
         }
         return url;
     }

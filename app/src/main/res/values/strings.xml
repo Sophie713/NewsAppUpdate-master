@@ -9,4 +9,10 @@
     <string name="error_message">There has been an error. Please, check your internet connection and try the update button.</string>
     <string name="success">Success</string>
     <string name="settings">Settings</string>
+    <string name="section">section</string>
+    <string name="sections">Sections</string>
+    <string name="order">order</string>
+    <string name="order_by">Order by</string>
+    <string name="all">all</string>
+    <string name="default_string">default</string>
 </resources>

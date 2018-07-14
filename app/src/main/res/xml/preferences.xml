@@ -11,16 +11,16 @@
         <ListPreference
             android:entries="@array/section_values"
             android:entryValues="@array/section"
-            android:key="section"
-            android:summary="all"
-            android:title="Sections" />
+            android:key="@string/section"
+            android:summary="@string/all"
+            android:title="@string/sections" />
 
         <ListPreference
             android:entries="@array/orderBy"
             android:entryValues="@array/orderBy"
-            android:key="order"
-            android:summary="default"
-            android:title="Order by" />
+            android:key="@string/order"
+            android:summary="@string/default_string"
+            android:title="@string/order_by" />
 
     </PreferenceCategory>
 
